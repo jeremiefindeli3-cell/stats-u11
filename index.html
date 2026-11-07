@@ -4230,7 +4230,7 @@ html body #calv .cal-lg u.tpa{background:#bfdbfe!important;color:#bfdbfe}
 html body #calv .cal-lg u.ma{background:#60a5fa!important;color:#60a5fa}
 
 /* v216 : zone de la barre d'état aux couleurs de l'accueil */
-html{background:linear-gradient(90deg,#b3000d 0%,#712f19 50%,#b58101 100%) fixed!important}
+html{background:linear-gradient(90deg,#b3000d 0%,#712f19 50%,#b58101 100%) top left/100% calc(env(safe-area-inset-top,0px) + 2px) no-repeat fixed,var(--bg,#eceef2)!important}
 
 /* v217 : plein écran iPhone — contenu sous la barre d'état et au-dessus de la barre du bas */
 #home{top:0!important;bottom:auto!important;height:100lvh!important;min-height:0!important;
@@ -8392,5 +8392,19 @@ try{const im=document.getElementById('jsy-logo');im.setAttribute('href',LOGO);im
 playIntro();
 </script>
 <script>(function(){function u(){try{var c=getComputedStyle(document.documentElement).getPropertyValue("--hbs").trim();var m=document.querySelector('meta[name="theme-color"]');if(c&&m)m.setAttribute("content",c)}catch(e){}}setInterval(u,1500);document.addEventListener("visibilitychange",u)})();</script>
+<script>/* v219 : récupération des bilans + amical Hoenheim + date Schirmeck (une seule fois) */
+(function(){const SB=[{"id":"bmvz1qiofhoh","pid":"p6","date":"2026-11-02","n":{"dp":4,"tir":4,"tsp":4,"dri":4,"pas":4,"rd":5,"dpo":5,"reb":4,"int":5,"vis":4,"esp":4,"con":5,"cmb":5,"eco":5},"com":""},{"id":"bmvz1rgi55uv","pid":"p11","date":"2026-11-02","n":{"dp":5,"tir":5,"tsp":5,"dri":4,"pas":4,"rd":1,"dpo":2,"reb":3,"int":2,"vis":4,"esp":3,"con":5,"cmb":4,"eco":4},"com":""},{"id":"bmvz2o09v96v","pid":"p14","date":"2026-11-02","n":{"dp":3,"tir":4,"tsp":3,"dri":2,"pas":3,"rd":4,"dpo":5,"reb":4,"int":4,"vis":3,"esp":3,"con":5,"cmb":5,"eco":4},"com":""},{"id":"bmvz2paynlwk","pid":"p3","date":"2026-11-02","n":{"dp":3,"tir":2,"tsp":2,"dri":3,"pas":3,"rd":4,"dpo":4,"reb":2,"int":3,"vis":3,"esp":3,"con":4,"cmb":4,"eco":4},"com":""},{"id":"bmvz2rvs3ijt","pid":"p2","date":"2026-11-02","n":{"dp":4,"tir":4,"tsp":3,"dri":3,"pas":4,"rd":5,"dpo":5,"reb":4,"int":5,"vis":4,"esp":4,"con":5,"cmb":5,"eco":5},"com":""},{"id":"bmvz2tkmjx58","pid":"p10","date":"2026-11-02","n":{"dp":1,"tir":2,"tsp":1,"dri":2,"pas":4,"rd":2,"dpo":3,"reb":1,"int":2,"vis":1,"esp":3,"con":2,"cmb":1,"eco":2},"com":""},{"id":"bmvz2xivdcwg","pid":"p7","date":"2026-11-02","n":{"dp":4,"tir":4,"tsp":4,"dri":4,"pas":4,"rd":1,"dpo":2,"reb":3,"int":3,"vis":3,"esp":3,"con":5,"cmb":3,"eco":5},"com":""},{"id":"bmvz2ypmw8sg","pid":"p8","date":"2026-11-02","n":{"dp":2,"tir":3,"tsp":3,"dri":4,"pas":4,"rd":5,"dpo":4,"reb":4,"int":4,"vis":4,"esp":4,"con":5,"cmb":5,"eco":4},"com":""},{"id":"bmvz314vmsum","pid":"p4","date":"2026-11-02","n":{"dp":4,"tir":4,"tsp":2,"dri":4,"pas":4,"rd":4,"dpo":4,"reb":3,"int":4,"vis":4,"esp":4,"con":4,"cmb":5,"eco":4},"com":""},{"id":"bmvz33h7mseq","pid":"p9","date":"2026-11-02","n":{"dp":2,"tir":2,"tsp":1,"dri":2,"pas":2,"rd":1,"dpo":2,"reb":1,"int":1,"vis":1,"esp":1,"con":2,"cmb":2,"eco":2},"com":""},{"id":"bmvz37gv2z3j","pid":"p5","date":"2026-11-02","n":{"dp":5,"tir":4,"tsp":4,"dri":4,"pas":3,"rd":3,"dpo":3,"reb":3,"int":4,"vis":4,"esp":3,"con":5,"cmb":5,"eco":5},"com":""},{"id":"bmvz398393hm","pid":"p1","date":"2026-11-02","n":{"dp":5,"tir":4,"tsp":4,"dri":5,"pas":3,"rd":5,"dpo":5,"reb":4,"int":5,"vis":4,"esp":5,"con":5,"cmb":5,"eco":5},"com":""},{"id":"bmvz3c3z9yuw","pid":"p13","date":"2026-11-02","n":{"dp":1,"tir":1,"tsp":1,"dri":2,"pas":2,"rd":1,"dpo":1,"reb":1,"int":2,"vis":1,"esp":2,"con":2,"cmb":2,"eco":2},"com":""},{"id":"bmvz3ey6dyts","pid":"p12","date":"2026-11-02","n":{"dp":3,"tir":3,"tsp":2,"dri":3,"pas":4,"rd":3,"dpo":2,"reb":2,"int":2,"vis":3,"esp":3,"con":5,"cmb":5,"eco":5},"com":""}],AM={"id":"a1793448083578","amical":true,"logo":"OCS","opponent":"Hoenheim","date":"2026-10-31","time":"","home":true,"score":"32-46","players":["Maeva","Rose","Élise","Maëlle","Pauline","Léana","Tiana","Sophie","Émilie","Elsa"]};
+function go(){try{if(localStorage.getItem('u11_seed_claude1'))return;let nb=0,ne=0;
+  if(!Array.isArray(bilans))bilans=[];SB.forEach(b=>{if(!bilans.some(x=>x.id===b.id)){bilans.push(b);nb++}});
+  if(nb)localStorage.setItem('u11_bilans',JSON.stringify(bilans));
+  eqResults=eqResults||{};const L=eqResults['2']=eqResults['2']||[];
+  if(!L.some(r=>r.id===AM.id)&&!L.some(r=>r.amical&&r.date===AM.date)){L.push(AM);ne++}
+  const f=L.find(r=>r.id==='f5');if(f&&f.date==='2026-12-05'){f.date='2026-12-11';f.time='18:00';f.home=false;ne++}
+  if(ne)localStorage.setItem('u11_eq_results',JSON.stringify(eqResults));
+  localStorage.setItem('u11_seed_claude1','1');
+  if(nb||ne){try{if(!$('home').classList.contains('gone'))showHome()}catch(e){}try{toast((nb?nb+' bilans récupérés':'')+(nb&&ne?' · ':'')+(ne?'matchs mis à jour':'')+' ✓')}catch(e){}}
+}catch(e){console.log(e)}}
+const prev=window.onSyncReady;window.onSyncReady=function(){try{prev&&prev()}catch(e){}clearTimeout(window._clSeedT);setTimeout(go,800)};
+window._clSeedT=setTimeout(go,16000);})();</script>
 </body>
 </html>
