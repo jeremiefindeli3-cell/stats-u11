@@ -4237,6 +4237,10 @@ html{background:linear-gradient(90deg,#b3000d 0%,#712f19 50%,#b58101 100%) fixed
   padding-top:calc(env(safe-area-inset-top,0px) + 24px)!important;padding-bottom:calc(env(safe-area-inset-bottom,0px) + 12px)!important}
 html body #home .hm-in{padding-bottom:12px!important}
 .sec{padding-top:calc(env(safe-area-inset-top,0px) + 12px)!important}
+
+/* v218 : iPhone plein écran — l'écran est décalé de la hauteur de la barre d'état, on rallonge d'autant */
+html body #home{height:calc(100lvh + env(safe-area-inset-top,0px))!important}
+html body .tv,html body .modal{bottom:calc(-1 * env(safe-area-inset-top,0px))!important}
 </style>
 </head>
 <body>
