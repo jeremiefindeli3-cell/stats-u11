@@ -4231,6 +4231,14 @@ html body #calv .cal-lg u.ma{background:#60a5fa!important;color:#60a5fa}
 
 /* v216 : zone de la barre d'état aux couleurs de l'accueil */
 html{background:linear-gradient(90deg,#b3000d 0%,#712f19 50%,#b58101 100%) fixed!important}
+
+/* v217 : plein écran iPhone — contenu sous la barre d'état et au-dessus de la barre du bas */
+#home{top:0!important;bottom:calc(-1 * env(safe-area-inset-bottom,0px))!important;height:auto!important;min-height:0!important;
+  padding-top:calc(env(safe-area-inset-top,0px) + 24px)!important;padding-bottom:calc(env(safe-area-inset-bottom,0px) + 40px)!important}
+.sec{padding-top:calc(env(safe-area-inset-top,0px) + 12px)!important}
+body{padding-bottom:calc(78px + env(safe-area-inset-bottom,0px))!important}
+.nav{height:calc(74px + env(safe-area-inset-bottom,0px))!important;padding-bottom:env(safe-area-inset-bottom,0px)!important}
+.pad{bottom:calc(74px + env(safe-area-inset-bottom,0px))!important}
 </style>
 </head>
 <body>
